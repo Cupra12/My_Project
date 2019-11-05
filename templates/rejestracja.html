@@ -16,20 +16,25 @@
 
 
 {% block content %}
-    <div class="content-section">
-        <form method="post">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border=bottom mb-4">Rejestracja</legend>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-sm4 col-xs-12"></div>
+        <div class="col-md-4 col-sm4 col-xs-12">
+            <h1>Zarejestruj się</h1>
+            <form role="form" method="post">
+                {% csrf_token %}
                 {{form|bootstrap}}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">Rejestruj</button>
+                <div class="checkbox"></div>
+                <div class="form-group">
+                    <p class="text-right"><button type="submit" class=" btn btn-primary btn-lg text-right">Rejestruj <i class="fas fa-user-plus"></i></button></p>
             </div>
+             </form>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Posiadasz już konto? <a class="ml-2" href="{% url 'login' %}">Zaloguj się</a>
+                <p class="text-center">Posiadasz już konto?</p>
+                <a class="ml-4" href="{% url 'login' %}">
+                    <p class="text-center">Zaloguj się</p></a>
             </small>
         </div>
     </div>

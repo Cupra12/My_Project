@@ -8,6 +8,7 @@
     <title>Książki</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href=https://use.fontawesome.com/releases/v5.1.0/css/all.css>
+    <link rel="stylesheet" href="/static/ksiazki.css">
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>  <!-- Nie wiem czy to może być, dzięki temu działa pasek navbar  -->
@@ -19,8 +20,8 @@
 <body>
 
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'Moja_biblioteka' %}"><img src="/static/log.jpg" width="40" height="40"
-                                          class="d-inline-block mr-1 align-bottom" alt="">Moja Biblioteka</a>
+  <a class="navbar-brand" href="{% url 'Moja_biblioteka' %}"><i class="fas fa-book" width="40" height="40"
+                                                                class="d-inline-block mr-1 align-bottom" alt=""> Moja Biblioteka </i></a>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
@@ -67,27 +68,37 @@
   </div>
 </nav>
 
-{% for ksiazki in ksiazki %}
-<div class="card" style="width: 600px">
-    <div class="card-body">
-            <img src="/media/{{ksiazki.zdjecie}}">
-        <div class="row">
-            <div class="col-sm-9">
-                <h2>{{ksiazki}}</h2>
+ <main>
+        <section class="ksiazki">
+            <div class="container">
+                <div class="row">
+                            {% for ksiazki in ksiazki %}
+                            <div class="card" style="width: 500px">
+                                <div class="card-body">
+                                        <img src="/media/{{ksiazki.zdjecie}} ">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <h2>{{ksiazki}}</h2>
 
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <a href="{% url 'Edytuj_ksiazke' ksiazki.id %}"><i class="fas fa-2x fa-edit"></i></a>
+                                            <a href="{% url 'Usun_ksiazke' ksiazki.id %}"><i class="fas fa-2x fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                        <p>{{ ksiazki.gatunek }}</p>
+                                        <p>{{ ksiazki.opis }}</p>
+                                    </div>
+                            </div>
+
+                            {% endfor %}
+                </div>
             </div>
-            <div class="col-sm-3">
-                <a href="{% url 'Edytuj_ksiazke' ksiazki.id %}"><i class="fas fa-2x fa-edit"></i></a>
-                <a href="{% url 'Usun_ksiazke' ksiazki.id %}"><i class="fas fa-2x fa-trash-alt"></i></a>
-            </div>
-        </div>
-            <p>{{ ksiazki.gatunek }}</p>
-            <p>{{ ksiazki.opis }}</p>
-        </div>
-</div>
-
-{% endfor %}
-
+            <div id="stopka">
+                    Moja biblioteka © 2019 Copyright Wszelkie prawa zastrzeżone
+                </div>
+        </section>
+ </main>
 
 </body>
 </html>

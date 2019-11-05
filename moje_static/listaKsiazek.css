@@ -1,0 +1,33 @@
+body
+{
+    background-color: gray;
+}
+
+.lista
+{
+	text-align: center;
+
+}
+
+
+.container
+{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.row welcome text-center
+{
+    color: white;
+    margin-top: 20px;
+}
+
+#stopka
+{
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}

@@ -1,0 +1,13 @@
+body
+{
+    background-color:#2F4F4F;
+}
+
+#stopka
+{
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}

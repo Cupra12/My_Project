@@ -8,23 +8,29 @@
     <title>Autorzy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href=https://use.fontawesome.com/releases/v5.1.0/css/all.css>
-    <link rel="stylesheet" href="/static/autorzy.css">
+    <link rel="stylesheet" href="/static/autor.css">
 </head>
 <body>
 
-<p>Autorzy</p>
-{% for ksiazki in ksiazki %}
-<div class="card" style="width: 600px">
-    <div class="card-body">
-        <div>
-            <h2>{{ksiazki}}</h2>
-            <p>{{ ksiazki.autor }}</p>
-
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'Moja_biblioteka' %}"><i class="fas fa-book" width="40" height="40"
+                                                                class="d-inline-block mr-1 align-bottom" alt=""> Moja Biblioteka </i></a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+  </form>
+</nav>
+            {% for ksiazki in ksiazki %}
+            <div class="card" style="width: 600px">
+                <div class="card-body">
+                    <h2>{{ksiazki}}</h2>
+                    <p>{{ ksiazki.autor }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        <div id="stopka">
+            Moja biblioteka © 2019 Copyright Wszelkie prawa zastrzeżone
         </div>
-    </div>
-</div>
-{% endfor %}
-
 
 
 </body>

@@ -13,10 +13,18 @@
 <body>
 
 
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'Moja_biblioteka' %}"><i class="fas fa-book" width="40" height="40"
+                                                                class="d-inline-block mr-1 align-bottom" alt=""> Moja Biblioteka </i></a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+  </form>
+</nav>
 
 <header>
     <main>
-        <section class="ksiazki">
+        <section class="top-ten">
             <div class="container">
                 <header>
                     <h1>TOP 10 książek</h1>
