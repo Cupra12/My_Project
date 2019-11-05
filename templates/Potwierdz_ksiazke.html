@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+{% block title %} Potwierdz {% endblock %}
+{% block body %}
+
+    <div class="alert alert-danger" role="alert">
+        <h1>Czy jesteś pewny aby usunąć {{ksiazki.nazwa}} ? </h1>
+    </div>
+    <form method="post">
+         {% csrf_token %}
+         <a href="{% url 'Moja_biblioteka'  %}">Cofnij <i class="fas fa-undo"></i></a>
+         <button type="submit" class="btn btn-danger">Tak </button>
+    </form>
+
+{% endblock %}

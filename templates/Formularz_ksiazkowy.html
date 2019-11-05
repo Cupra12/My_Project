@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+{% block title %} Zapisz ksiażke  {% endblock %}
+{% block body %}
+
+     <div class="card" style="width: 700px;">
+      <div class="card-body">
+          <h5 class="card-title">Zapisz ksiażke </h5>
+        <form role="role" method="post" enctype="multipart/form-data">
+            {% csrf_token %}  <!-- jest to potrzebne jak by tego nie było to nie działły by strony -->
+            {{form|bootstrap}}                          <!-- dodoanie boblioteki bootstrap do form-->
+            <a href="{% url 'Moja_biblioteka'  %}">Cofnij <i class="fas fa-undo"></i></a>
+            <button type="submit" class="btn btn-primary">Zapisz </button>
+        </form>
+      </div>
+    </div>
+
+
+{% endblock %}

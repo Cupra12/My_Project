@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Książki</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://use.fontawesome.com/releases/v5.1.0/css/all.css>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>  <!-- Nie wiem czy to może być, dzięki temu działa pasek navbar  -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  <!-- Nie wiem czy to może być, dzięki temu działa pasek navbar  -->
+
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'Moja_biblioteka' %}"><img src="/static/log.jpg" width="40" height="40"
+                                          class="d-inline-block mr-1 align-bottom" alt="">Moja Biblioteka</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+  </form>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="mainmenu">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true" >KATEGORIE <span class="caret"></span> </a>
+         <div class="dropdown-menu" aria-labelledby="submenu">
+              <a class="dropdown-item" href="#">Literatura Piekna</a>
+              <a class="dropdown-item" href="#">Fantastyka</a>
+              <a class="dropdown-item" href="#">Kryminały i sensacje</a>
+              <a class="dropdown-item" href="#">Powieści</a>
+              <a class="dropdown-item" href="#">Autobiografie/Biografie</a>
+              <a class="dropdown-item" href="#">Historyczny</a>
+              <a class="dropdown-item" href="#">Przygodowe</a>
+              <a class="dropdown-item" href="#">Horrory</a>
+        </div>
+      </li>
+       <li class="nav-item ">
+          <a class="nav-link" href="{% url 'Nowa_ksiazka' %}"> Dodaj książke </a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Bestsellery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Nowości</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link " href="#">Dla najmłodszych</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+{% for ksiazki in ksiazki %}
+<div class="card" style="width: 600px">
+    <div class="card-body">
+            <img src="/media/{{ksiazki.zdjecie}}">
+        <div class="row">
+            <div class="col-sm-9">
+                <h2>{{ksiazki}}</h2>
+
+            </div>
+            <div class="col-sm-3">
+                <a href="{% url 'Edytuj_ksiazke' ksiazki.id %}"><i class="fas fa-2x fa-edit"></i></a>
+                <a href="{% url 'Usun_ksiazke' ksiazki.id %}"><i class="fas fa-2x fa-trash-alt"></i></a>
+            </div>
+        </div>
+            <p>{{ ksiazki.gatunek }}</p>
+            <p>{{ ksiazki.opis }}</p>
+        </div>
+</div>
+
+{% endfor %}
+
+
+</body>
+</html>

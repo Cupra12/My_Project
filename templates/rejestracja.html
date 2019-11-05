@@ -1,0 +1,52 @@
+{% load bootstrap %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href=https://use.fontawesome.com/releases/v5.1.0/css/all.css>
+    <link rel="stylesheet" href="/static/nowy.css">
+
+</head>
+<body>
+
+
+{% block content %}
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border=bottom mb-4">Rejestracja</legend>
+                {{form|bootstrap}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Rejestruj</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Posiadasz już konto? <a class="ml-2" href="{% url 'login' %}">Zaloguj się</a>
+            </small>
+        </div>
+    </div>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

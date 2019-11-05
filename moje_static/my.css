@@ -1,0 +1,17 @@
+body {
+    color: #444;
+    padding: 50px;
+    background-image: url(/static/main.jpg);
+
+
+}
+img {
+    width: 400px;
+    float: left;
+}
+card {
+    width: 700px;
+}
+.opis {
+    margin-left: 15px;
+}
